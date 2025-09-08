@@ -5,6 +5,8 @@ function LoadCategoryData() {
         .then((json) => DisplaycategoryData(json.categories))
         
 }
+
+
 const DisplaycategoryData = (category) => {
     console.log(category);
     // Clear previous content
@@ -16,8 +18,8 @@ const DisplaycategoryData = (category) => {
         div.innerHTML = `
        
        <ul class="mt-6 cetegory">
-            <li class="">${categories.category_name}</li>
-          </ul>
+<li class="">${categories.category_name}</li>        
+  </ul>
         `;
         categoryContainer.appendChild(div);
     }
@@ -68,5 +70,4 @@ const displayCategoryData = (Plants) => {
 
 fetchAllPlantsData();
 
-// fetchAllPlantsData function fetchAllPlantsData displayCategoryData
 
