@@ -32,7 +32,6 @@ function getcategoryData(id) {
     .then((json) => displayCategoryPlants(json.plants));
 }
 const displayCategoryPlants = (plants) => {
-  console.log(plants);
   const categoryContainer = document.getElementById("allCard");
   categoryContainer.innerHTML = "";
   for (const plant of plants) {
@@ -43,22 +42,23 @@ const displayCategoryPlants = (plants) => {
         : plant.description;
     const div = document.createElement("div");
     div.innerHTML = `
- <div class="card">
-                    <div class="card-image">
-                        <img src="${plant.image}" alt="Tree Image" class="w-full h-auto" />
-                    </div>
-                    <div class="card-text">
-                        <h3 class="text-[12px] font-semibold mb-1">${plant.name}</h3>
-                        <p class="text-[#8C8C8C] mb-4">${shortDesc}</p>
-                    </div>
-                    <div class="card-footer flex justify-between items-center">
-                        <h6>${plant.category}</h6>
-                        <span class="text-lg font-semibold">${plant.price}</span>
-                    </div>
-                    <button class="cart-btn">Add to Cart</button>
-                </div>
-
-                        `;
+      <div class="card">
+        <div class="card-image">
+          <img src="${plant.image}" alt="Tree Image" class="w-full h-auto" />
+        </div>
+        <div class="card-text">
+          <h3 class="text-[12px] font-semibold mb-1 tree-name" style="cursor:pointer;">${plant.name}</h3>
+          <p class="text-[#8C8C8C] mb-4">${shortDesc}</p>
+        </div>
+        <div class="card-footer flex justify-between items-center">
+          <h6>${plant.category}</h6>
+          <span class="text-lg font-semibold">${plant.price}</span>
+        </div>
+        <button class="cart-btn">Add to Cart</button>
+      </div>
+    `;
+    // Add modal event to tree name
+    div.querySelector(".tree-name").onclick = () => showTreeModal(plant);
     categoryContainer.appendChild(div);
   }
 };
@@ -72,11 +72,9 @@ function fetchAllPlantsData() {
     .then((json) => displayCategoryData(json.plants));
 }
 const displayCategoryData = (Plants) => {
-  console.log(Plants);
   const categoryContainer = document.getElementById("allCard");
   categoryContainer.innerHTML = "";
   for (const plant of Plants) {
-    // Shorten description to 20 words
     const descWords = plant.description.split(" ");
     const shortDesc =
       descWords.length > 7
@@ -84,22 +82,23 @@ const displayCategoryData = (Plants) => {
         : plant.description;
     const div = document.createElement("div");
     div.innerHTML = `
-        <div class="card">
-                    <div class="card-image">
-                        <img src="${plant.image}" alt="Tree Image" class="w-full h-auto" />
-                    </div>
-                    <div class="card-text">
-                        <h3 class="text-[12px] font-semibold mb-1">${plant.name}</h3>
-                        <p class="text-[#8C8C8C] mb-4">${shortDesc}</p>
-                    </div>
-                    <div class="card-footer flex justify-between items-center">
-                        <h6>${plant.category}</h6>
-                        <span class="text-lg font-semibold">${plant.price}</span>
-                    </div>
-                    <button class="cart-btn">Add to Cart</button>
-                </div>
-        
-        `;
+      <div class="card">
+        <div class="card-image">
+          <img src="${plant.image}" alt="Tree Image" class="w-full h-auto" />
+        </div>
+        <div class="card-text">
+          <h3 class="text-[12px] font-semibold mb-1 tree-name" style="cursor:pointer;">${plant.name}</h3>
+          <p class="text-[#8C8C8C] mb-4">${shortDesc}</p>
+        </div>
+        <div class="card-footer flex justify-between items-center">
+          <h6>${plant.category}</h6>
+          <span class="text-lg font-semibold">${plant.price}</span>
+        </div>
+        <button class="cart-btn">Add to Cart</button>
+      </div>
+    `;
+    // Add modal event to tree name
+    div.querySelector(".tree-name").onclick = () => showTreeModal(plant);
     categoryContainer.appendChild(div);
   }
 };
@@ -183,5 +182,27 @@ document.addEventListener("click", function (e) {
     removeFromCart(name);
   }
 });
+
+function showTreeModal(plant) {
+  document.getElementById("modal-image").src = plant.image;
+  document.getElementById("modal-name").textContent = plant.name;
+  document.getElementById("modal-category").textContent = plant.category;
+  document.getElementById("modal-description").textContent = plant.description;
+  document.getElementById("modal-price").textContent = `Price: $${plant.price}`;
+  document.getElementById("tree-modal").style.display = "flex";
+}
+
+document.getElementById("close-modal").onclick = function() {
+  document.getElementById("tree-modal").style.display = "none";
+};
+
+document.getElementById("tree-modal").onclick = function(e) {
+  if (e.target === this) {
+    this.style.display = "none";
+  }
+};
+
+
+
 
 

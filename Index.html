@@ -135,6 +135,16 @@
     <footer class="bg-[#14532D] p-4">
         <h1 class="text-xl text-[#fff] flex justify-center items-center">© 2025 Green Earth. All Rights Reserved.</h1>
     </footer>
+    <div id="tree-modal" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.4); justify-content:center; align-items:center; z-index:1000;">
+        <div style="background:#fff; border-radius:1rem; padding:2rem; max-width:400px; width:90%; position:relative;">
+            <span id="close-modal" style="position:absolute; top:1rem; right:1rem; cursor:pointer; font-size:1.5rem;">&times;</span>
+            <img id="modal-image" src="" alt="Tree Image" style="width:100%; border-radius:0.5rem; margin-bottom:1rem;">
+            <h3 id="modal-name" style="margin-bottom:0.5rem;"></h3>
+            <p id="modal-category" style="color:#15803D; margin-bottom:0.5rem;"></p>
+            <p id="modal-description" style="margin-bottom:0.5rem;"></p>
+            <p id="modal-price" style="font-weight:bold;"></p>
+        </div>
+    </div>
     <script src="./script.js"></script>
 </body>
 
