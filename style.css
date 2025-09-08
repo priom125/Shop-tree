@@ -1,0 +1,245 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Hind+Madurai:wght@300;400;500;600;700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+}
+.active{
+    background: #15803D;
+    font-weight: 600;
+    color: white;
+    padding-left: .5rem;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding-bottom: .5rem;
+}
+.navbar{
+    background-color: #15803D;
+    color: white;
+    padding: 1rem 4rem;
+    text-align: center;
+    font-size: 1rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav-center ul{
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.nav-btn{
+    background-color: #FACC15;
+    color: #15803D;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 1.5rem;
+    cursor: pointer;
+}
+
+.banner{
+    background-color: #CFF0DC;
+    padding: 0rem 2rem;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.banner-text p{
+    margin-top: 1rem;
+    max-width: 583px;
+    max-height: 48px;
+}
+
+.btn{
+    background-color: #FACC15;
+    color: #15803D;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 1.5rem;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+.main-section{
+   background: #F0FDF4;
+    padding: 2rem 0;
+}
+.main-section h4 {
+    margin-top: 2rem;
+}
+.main{
+    padding: 2rem 4rem;
+    display: grid;
+ grid-template-columns: 1fr 3fr 1fr;
+    gap: 2rem;
+}
+.left-category{
+    max-width: 250px;
+    padding: 1rem 1.5rem;
+ 
+}
+.left-category h1{
+    margin-bottom: 1rem;
+}
+.left-category p{
+     padding-bottom: .5rem;
+    cursor: pointer;
+    list-style: none;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+}
+.left-category p:hover{
+    background: #15803D;
+    font-weight: 600;
+    color: white;
+    padding-left: .5rem;
+    border-radius: 0.5rem;
+
+}
+
+.cetegory li{
+    padding-bottom: .5rem;
+    cursor: pointer;
+    list-style: none;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    margin-top: .5rem;
+    display: flex;
+  
+    align-items: center;
+    cursor: pointer;
+}
+.cetegory li:hover{
+    background: #15803D;
+    font-weight: 600;
+    color: white;
+    padding-left: .5rem;
+    border-radius: 0.5rem;
+   
+
+}
+
+.allCard{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    flex: 1;
+}
+.card{
+    background: white;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    max-width: 344px;
+    max-height: 382px;
+}
+.card img{
+    width: 311px;
+    height: 186px;
+    object-fit: cover;
+    border-radius: 0.5rem;
+}
+.card h3{
+    margin: 0.25rem 0;
+    font-size: 0.8rem;
+}
+.card p{
+    color: #000;
+    font-size: small;
+    color: #8f8f8f;
+    max-width: 311px;
+    max-height: 32px;
+}
+.card-footer{
+    margin-top: 1rem;
+}
+.card-footer h6{
+    font-size: 0.75rem;
+    color: #15803D;
+    background: #CFF0DC;
+    padding: 0.25rem 1rem;
+    border-radius: 1rem;
+    
+}
+.cart-btn{
+    background-color: #15803D;
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 1.5rem;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.cart-section{
+    max-width: 250px;
+    padding: 1rem 1rem;
+    background: #fff;
+    border-radius: 0.5rem;
+    height: 793px;
+}
+.cart-section h2{
+    margin-bottom: 1rem;
+}
+.cart-item{
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+justify-content: space-between;
+    gap: 0.5rem;
+    background: #F0FDF4;
+    padding: 1rem;
+    border-radius: 1rem;
+}
+
+
+
+
+@media screen and (max-width: 768px) {
+    .navbar{
+        gap: 0.5rem;
+        padding: 1rem 1rem;
+    }
+
+    .nav-center ul{
+        gap: 0.5rem;
+    }
+    .banner{
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+    .banner-text p{
+        font-size: 0.875rem;
+        max-width: 100%;
+    }
+    .banner-text h1{
+        font-size: 1.5rem;
+    }
+    .btn{
+        font-size: 0.875rem;
+    }
+    .main{
+        padding: 2rem 1rem;
+        grid-template-columns: 1fr;
+
+    }
+    .allCard{
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        justify-items: center;
+        align-items: center;
+    }
+   
+
+
+}

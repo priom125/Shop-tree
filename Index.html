@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assignment 6</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <h4 class="font-semibold">Green Earth</h4>
+        </div>
+        <div class="nav-center">
+            <ul>
+                <li>About</li>
+                <li>Gallery</li>
+                <li>Plant a Tree</li>
+            </ul>
+        </div>
+        <div class="nav-btn">
+            <button class="">Plant a Tree</button>
+        </div>
+    </nav>
+    <!-- ----------------------------------------------nav end ---------------------------------------------- -->
+    <section class="banner">
+        <div class="banner-image">
+            <img src="./assets/hero-leaf1.png" alt="Banner Image" class="w-full h-auto" />
+        </div>
+        <div class="banner-text">
+            <h1 class="text-5xl font-bold mb-4">Plant a Tree, Grow a Future</h1>
+            <p class="my-6 text-[#8C8C8C]">
+                Join our mission to plant 1 million trees and make the Earth greener
+                for future generations.
+            </p>
+            <button class="btn">Get Involved</button>
+        </div>
+        <div class="banner-image">
+            <img src="./assets/hero-leaf2.png" alt="Banner Image" class="w-full h-auto" />
+        </div>
+    </section>
+    <!-- ----------------------------------------------banner end ---------------------------------------------- -->
+    <section class="main-section">
+        <h4 class="font-semibold text-center text-4xl ">Choose Your Trees</h4>
+        <div class="main">
+            <div class="left-category">
+                <h1 class="text-3xl font-semibold">Categories</h1>
+                <p onclick="fetchAllPlantsData()" class="active">All Trees</p>
+                <div id="left-category">
+
+                </div>
+            </div>
+            <!-- ----------------------------------------------main left end ---------------------------------------------- -->
+            <div class="allCard" id="allCard">
+                <!-- Cards here -->
+            </div>
+            <!-- ----------------------------------------------main center end ---------------------------------------------- -->
+            <div class="cart-section">
+                <h2>Your Cart</h2>
+                <div id="cart-items">
+                    <div class="cart-item">
+                       <div>
+                         <p class="font-semibold text-[1rem]">Tree Name</p>
+                        <p class="text-[#8f8f8f] text-[12px]">500 X 1</p>
+                       </div>
+                       <p class="cursor-pointer text-[#8f8f8f]">X</p>
+                    </div>
+                    
+                </div>
+                <hr class="w-full border border-[#8f8f8f] my-4" />
+                <div class="cart-total flex justify-between items-center">
+                    
+                    <h3>Total :</h3>
+                    <p> $500</p>
+            </div>
+        </section>
+    <script src="./script.js"></script>
+</body>
+
+</html>
