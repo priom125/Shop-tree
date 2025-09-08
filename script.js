@@ -106,23 +106,82 @@ const displayCategoryData = (Plants) => {
 
 fetchAllPlantsData();
 
-// Set All Trees as default active on page load
+// Add All Trees as default active from first
 window.addEventListener("DOMContentLoaded", function () {
   const allTreesBtn = document.getElementById("allTrees");
   if (allTreesBtn) {
     allTreesBtn.classList.add("active");
   }
+  // Empty the cart 
+  cart = [];
+  updateCartUI();
 });
 
-// Delegate click events for category buttons and All Trees
+// Delegate click events category buttons
 document.addEventListener("click", function (e) {
-  // Check if a category li or All Trees was clicked
+  // Check if a category li 
   if (e.target.matches(".cetegory li") || e.target.id === "allTrees") {
-    // Remove 'active' from all category buttons and All Trees
+
     document.querySelectorAll(".cetegory li, #allTrees").forEach(btn => btn.classList.remove("active"));
-    // Add 'active' to the clicked button
+  
     e.target.classList.add("active");
   }
 });
 
- 
+let cart = [];
+
+function addToCart(plant) {
+  // Check if item already in cart
+  const existing = cart.find(item => item.name === plant.name && item.price === plant.price);
+  if (existing) {
+    existing.quantity += 1;
+  } else {
+    cart.push({ name: plant.name, price: plant.price, quantity: 1 });
+  }
+  updateCartUI();
+}
+
+function removeFromCart(name) {
+  cart = cart.filter(item => item.name !== name);
+  updateCartUI();
+}
+
+function updateCartUI() {
+  const cartItems = document.getElementById("cart-items");
+  cartItems.innerHTML = "";
+  let total = 0;
+  cart.forEach(item => {
+    total += item.price * item.quantity;
+    const div = document.createElement("div");
+    div.className = "cart-item";
+    div.innerHTML = `
+      <div>
+        <p class="font-semibold text-[1rem]">${item.name}</p>
+        <p class="text-[#8f8f8f] text-[12px]">$${item.price} x ${item.quantity}</p>
+      </div>
+      <p class="cursor-pointer text-[#8f8f8f] remove-cart" data-name="${item.name}">X</p>
+    `;
+    cartItems.appendChild(div);
+  });
+  // Update total
+  const cartTotal = document.querySelector(".cart-total p");
+  if (cartTotal) {
+    cartTotal.textContent = `$${total}`;
+  }
+}
+
+// Listen for Add to Cart and Remove actions
+document.addEventListener("click", function (e) {
+  if (e.target.classList.contains("cart-btn")) {
+    const card = e.target.closest(".card");
+    const itemName = card.querySelector(".card-text h3").innerText;
+    const itemPrice = parseFloat(card.querySelector(".card-footer span").innerText.replace(/[^0-9.]/g, "")) || 0;
+    addToCart({ name: itemName, price: itemPrice });
+  }
+  if (e.target.classList.contains("remove-cart")) {
+    const name = e.target.getAttribute("data-name");
+    removeFromCart(name);
+  }
+});
+
+
