@@ -106,4 +106,23 @@ const displayCategoryData = (Plants) => {
 
 fetchAllPlantsData();
 
-// Clicking categories to load data
+// Set All Trees as default active on page load
+window.addEventListener("DOMContentLoaded", function () {
+  const allTreesBtn = document.getElementById("allTrees");
+  if (allTreesBtn) {
+    allTreesBtn.classList.add("active");
+  }
+});
+
+// Delegate click events for category buttons and All Trees
+document.addEventListener("click", function (e) {
+  // Check if a category li or All Trees was clicked
+  if (e.target.matches(".cetegory li") || e.target.id === "allTrees") {
+    // Remove 'active' from all category buttons and All Trees
+    document.querySelectorAll(".cetegory li, #allTrees").forEach(btn => btn.classList.remove("active"));
+    // Add 'active' to the clicked button
+    e.target.classList.add("active");
+  }
+});
+
+ 
