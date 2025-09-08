@@ -24,6 +24,7 @@
     font-size: 1rem;
     display: flex;
     justify-content: space-between;
+    max-width: 1920px;
 }
 
 .nav-center ul{
@@ -331,12 +332,29 @@ footer h1 {
 
 @media screen and (max-width: 768px) {
     .navbar{
-        gap: 0.5rem;
-        padding: 1rem 1rem;
+        gap: 0rem;
+        padding: 0rem 0rem;
+        justify-content: center;
+        align-items: center;
     }
-
+ .navbar .logo h4{
+       font-size: 1rem;
+    padding: 1rem 0;
+    width: 100px;
+    }
     .nav-center ul{
-        gap: 0.5rem;
+        gap: 0rem;
+    }
+    .nav-center ul li{
+       width: 72px;
+         font-size: 12px;
+       
+    }
+    .nav-btn{
+        padding: 0.25rem 0.5rem;
+        font-size: 0.5rem;
+        width: 68px;
+        margin-left: 0.75rem;
     }
     .banner{
         flex-direction: column;
@@ -349,6 +367,9 @@ footer h1 {
     }
     .banner-text h1{
         font-size: 1.5rem;
+    }
+    .banner-image img{
+     display: none;
     }
     .btn{
         font-size: 0.875rem;
