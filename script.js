@@ -201,14 +201,12 @@ document.getElementById("tree-modal").onclick = function(e) {
     this.style.display = "none";
   }
 };
-// Spinner functions
-function showSpinner() {
-  document.getElementById("spinner").style.display = "block";
-}
-// Hide spinner
-function hideSpinner() {
-  document.getElementById("spinner").style.display = "none";
-}
+
+// Preloader
+const preloader = document.getElementById('preloader');
+window.addEventListener('load', function() {
+  preloader.style.display = 'none';
+});
 
 
 
