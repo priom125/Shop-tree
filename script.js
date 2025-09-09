@@ -52,7 +52,7 @@ const displayCategoryPlants = (plants) => {
         </div>
         <div class="card-footer flex justify-between items-center">
           <h6>${plant.category}</h6>
-          <span class="text-lg font-semibold">${plant.price}</span>
+          <span class="text-lg font-semibold">$${plant.price}</span>
         </div>
         <button class="cart-btn">Add to Cart</button>
       </div>
@@ -63,7 +63,7 @@ const displayCategoryPlants = (plants) => {
   }
 };
 
-// LoadCategoryData function fetchCategoryData
+// LoadCategoryData function fetchCategoryData function
 
 function fetchAllPlantsData() {
   const allPlants_url = "https://openapi.programming-hero.com/api/plants";
@@ -92,7 +92,7 @@ const displayCategoryData = (Plants) => {
         </div>
         <div class="card-footer flex justify-between items-center">
           <h6>${plant.category}</h6>
-          <span class="text-lg font-semibold">${plant.price}</span>
+          <span class="text-lg font-semibold">$${plant.price}</span>
         </div>
         <button class="cart-btn">Add to Cart</button>
       </div>
@@ -104,6 +104,7 @@ const displayCategoryData = (Plants) => {
 };
 
 fetchAllPlantsData();
+//----------------------------------------------Api end ----------------------------------------------
 
 // Add All Trees as default active from first
 window.addEventListener("DOMContentLoaded", function () {
@@ -111,22 +112,23 @@ window.addEventListener("DOMContentLoaded", function () {
   if (allTreesBtn) {
     allTreesBtn.classList.add("active");
   }
-  // Empty the cart 
+
   cart = [];
   updateCartUI();
 });
 
 // Delegate click events category buttons
 document.addEventListener("click", function (e) {
-  // Check if a category li 
+
   if (e.target.matches(".cetegory li") || e.target.id === "allTrees") {
 
-    document.querySelectorAll(".cetegory li, #allTrees").forEach(btn => btn.classList.remove("active"));
+   const liBtn = document.querySelectorAll(".cetegory li, #allTrees");
+   liBtn.forEach(btn => btn.classList.remove("active"));
   
     e.target.classList.add("active");
   }
 });
-
+//---------------------------------------------category click end ----------------------------------------------
 let cart = [];
 
 function addToCart(plant) {
@@ -162,7 +164,7 @@ function updateCartUI() {
     `;
     cartItems.appendChild(div);
   });
-  // Update total
+  // Update total price
   const cartTotal = document.querySelector(".cart-total p");
   if (cartTotal) {
     cartTotal.textContent = `$${total}`;
@@ -182,7 +184,7 @@ document.addEventListener("click", function (e) {
     removeFromCart(name);
   }
 });
-
+//---------------------------------------------cart end ----------------------------------------------
 function showTreeModal(plant) {
   document.getElementById("modal-image").src = plant.image;
   document.getElementById("modal-name").textContent = plant.name;
@@ -201,7 +203,7 @@ document.getElementById("tree-modal").onclick = function(e) {
     this.style.display = "none";
   }
 };
-
+//---------------------------------------------modal end ----------------------------------------------
 // Preloader
 const preloader = document.getElementById('preloader');
 window.addEventListener('load', function() {
